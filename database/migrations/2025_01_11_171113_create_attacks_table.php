@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('attacks', function (Blueprint $table) {
             $table->id();
             $table->string('name', 30);
-            $table->string('description', 150);
-            $table->smallInteger('DMG');
+            $table->string('description', 200)->nullable();
+            $table->string('DMG', 10)->nullable();
             $table->timestamps();
         });
     }
