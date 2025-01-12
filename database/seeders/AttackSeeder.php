@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Attack;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,7 +13,7 @@ class AttackSeeder extends Seeder
      */
     public function run(): void
     {
-        $attackData = [
+        $attacksData = [
             [
                 'name' => 'Vine Whip',
                 'description' => '',
@@ -336,5 +337,10 @@ class AttackSeeder extends Seeder
                 'DMG' => '60',
             ],
         ];
+        foreach ($attacksData as $attackData) {
+            if (!empty($attackData['name'])) {
+                Attack::create($attackData);
+            }
+        }
     }
 }
